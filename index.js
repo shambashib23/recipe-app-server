@@ -7,7 +7,7 @@ import dbConnect from './config/db.js';
 
 // import Routes
 import HomeRouter from './routes/home.js';
-
+import AdminRouter from './routes/admin/index.js';
 const app = express();
 app.use(cors());
 app.use(helmet());
@@ -25,6 +25,7 @@ dbConnect();
 
 // routes
 app.use('/', HomeRouter);
+app.use('/admin', AdminRouter);
 
 // Print out all available routes to the console
 console.log(listEndpoints(app));
